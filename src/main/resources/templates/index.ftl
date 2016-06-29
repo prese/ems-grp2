@@ -141,7 +141,7 @@
 				<h2>Sample app code</h2>
 				Sample app is a simple implementation for an Employee Management
 				System(one of your homeworks). Get it from here:
-				<code>git clone https://github.com/prese/ems.git</code>
+				<code>git clone https://github.com/prese/ems-grp2.git</code>
 				<hr />
 
 			</div>
