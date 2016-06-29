@@ -1,9 +1,9 @@
 package ro.sci.ems.cfg;
 
-import java.net.URISyntaxException;
 import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
+import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;

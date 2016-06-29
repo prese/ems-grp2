@@ -28,9 +28,9 @@
 	<br/>
 	Gender:<input name="gender" type="input" value="${employee.gender!''}"/>
 	<br/>
-	Birthdate:<input name="birthDate" type="input" value="[#if employee.birthDate??]${employee.birthDate?string('dd/MM/yyyy')}[/#if]"/>
+	Birthdate:<input name="birthDate" type="input" value="[#if employee.birthDate??]${employee.birthDate?string('dd-MM-yyyy')}[/#if]"/>
 	<br/>
-	Employment Date:<input name="employmentDate" type="input" value="[#if employee.employmentDate??]${employee.employmentDate?string('dd/MM/yyyy')}[/#if]"/>
+	Employment Date:<input name="employmentDate" type="input" value="[#if employee.employmentDate??]${employee.employmentDate?string('dd-MM-yyyy')}[/#if]"/>
 	<br/>
 	<input type="hidden" name="id" value="[#if employee.id??]${employee.id?c}[/#if]">
 	<input type="submit" value="Save">

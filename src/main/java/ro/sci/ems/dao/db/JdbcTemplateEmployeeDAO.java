@@ -2,6 +2,7 @@ package ro.sci.ems.dao.db;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Date;
 
@@ -29,15 +30,53 @@ public class JdbcTemplateEmployeeDAO implements EmployeeDAO {
 
 	@Override
 	public Employee findById(Long id) {
-		return jdbcTemplate.queryForObject("select * from employee where id = ?",
-				new Long[] { id },
+		return jdbcTemplate.queryForObject("select * from employee where id = ?", new Long[] { id },
 				new EmployeeMapper());
 	}
 
 	@Override
 	public Employee update(Employee model) {
-		// TODO Auto-generated method stub
-		return null;
+
+		String sql = "";
+		Long newId = null;
+		if (model.getId() > 0) {
+			sql = "update employee set first_name=?, last_name=?, job_title=?, birth_date=?, employment_date=?, gender = ? "
+					+ "where id = ? returning id";
+			newId = jdbcTemplate.queryForObject(sql, new Object[]{
+					model.getFirstName(),
+					model.getLastName(),
+					model.getJobTitle(),
+					new Timestamp(model.getBirthDate().getTime()),
+					new Timestamp(model.getEmploymentDate().getTime()),
+					model.getGender().name(),
+					model.getId()
+							
+			}, new RowMapper<Long>() {
+				public Long mapRow(ResultSet rs, int arg1) throws SQLException {
+					return rs.getLong(1);
+				}
+			});
+		} else {
+			sql = "insert into employee (first_name, last_name, job_title, birth_date, employment_date, gender) "
+					+ "values (?, ?, ?, ?, ?, ?) returning id";
+			
+			newId = jdbcTemplate.queryForObject(sql, new Object[]{
+					model.getFirstName(),
+					model.getLastName(),
+					model.getJobTitle(),
+					new Timestamp(model.getBirthDate().getTime()),
+					new Timestamp(model.getEmploymentDate().getTime()),
+					model.getGender().name()
+							
+			}, new RowMapper<Long>() {
+				public Long mapRow(ResultSet rs, int arg1) throws SQLException {
+					return rs.getLong(1);
+				}
+			});
+		}
+		model.setId(newId);
+	
+		return model;
 	}
 
 	@Override
