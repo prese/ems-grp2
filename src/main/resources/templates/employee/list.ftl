@@ -13,17 +13,27 @@
 	
 </head>
 [#escape x as x?html]
+<div class="container">
+		<a href="/"> <img src="[@spring.url '/images/logo.png' /]" width="100"/>
+		</a>
 
+		<ol class="breadcrumb">
+			<li><a href="/">Home</a></li>
+			<li class="active">Employees</li>
+			<li><a href="/login">Login</a></li>
+		</ol>
+
+	
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Panel heading</div>
+  <div class="panel-heading">Hello: [#if currentUser??]${currentUser.userName!''}[/#if]</div>
   <div class="panel-body">
     <a href="/employee/add" style="float:right;margin-right:50px">
     	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
   </div>
 
-  Current user: [#if currentUser??]${currentUser.userName!''}[/#if]
+  
   <table class="table">
 	<tr>
 		<th>First Name</th>
@@ -51,6 +61,6 @@
 </table>
 </div>
 
-
+</div>
 
 [/#escape]
