@@ -95,6 +95,7 @@
 					<li>Create an account to Heroku: <a
 						href="http://www.heroku.com">www.heroku.com</a></li>
 					<li>Commit your Spring Boot application to github</li>
+					<li>Install heroku CLI, see <a href="https://devcenter.heroku.com/articles/heroku-command">here</a>
 					<li>Create a java application for Heroku and link it to the
 						Heroku application, see <a
 						href="https://devcenter.heroku.com/articles/github-integration">here</a>
