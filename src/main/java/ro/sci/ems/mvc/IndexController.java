@@ -10,7 +10,6 @@ public class IndexController {
 
 	@RequestMapping("")
 	public ModelAndView index() {
-		System.out.println("in index");
 		return new ModelAndView("index");
 	}
 }

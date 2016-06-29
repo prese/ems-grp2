@@ -98,6 +98,8 @@
 					<li>Create a java application for Heroku and link it to the
 						Heroku application, see <a
 						href="https://devcenter.heroku.com/articles/github-integration">here</a>
+						
+						Do not forget to enable the application from herodu - RESOURCES menu.
 					</li>
 					<li>Configure the automatic deployment in Heroku, see <a
 						href="https://devcenter.heroku.com/articles/github-integration#automatic-deploys">here</a></li>
