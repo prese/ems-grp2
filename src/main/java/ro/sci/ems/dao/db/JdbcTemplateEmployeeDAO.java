@@ -87,8 +87,10 @@ public class JdbcTemplateEmployeeDAO implements EmployeeDAO {
 
 	@Override
 	public Collection<Employee> searchByName(String query) {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.query("select * from employee "
+						+ "where lower(first_name || ' ' || last_name) like '%?%'", 
+						new String[]{query.toLowerCase()}, 
+						new EmployeeMapper());
 	}
 
 	private static class EmployeeMapper implements RowMapper<Employee> {

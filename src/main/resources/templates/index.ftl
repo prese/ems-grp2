@@ -20,8 +20,13 @@
 
 		<ol class="breadcrumb">
 			<li class="active">Home</li>
+			[#if currentUser??]
 			<li><a href="/employee">Employees</a></li>
+			<li><a href="/logout">Logout</a></li>
+			[#else]
 			<li><a href="/login">Login</a></li>
+			[/#if]
+			
 		</ol>
 
 		<div class="panel panel-default">

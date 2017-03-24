@@ -51,7 +51,7 @@
 			    
 			    
 			    
-				<form action="/login/save" method="POST">
+				<form action="/onLogin" method="POST">
 					<div class="form-group">
 						<label for="firstName">Username</label> 
 						<input type="text"

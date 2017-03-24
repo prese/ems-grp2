@@ -20,7 +20,11 @@
 		<ol class="breadcrumb">
 			<li><a href="/">Home</a></li>
 			<li class="active">Employees</li>
+			[#if currentUser??]
+			<li><a href="/logout">Logout</a></li>
+			[#else]
 			<li><a href="/login">Login</a></li>
+			[/#if]
 		</ol>
 
 	

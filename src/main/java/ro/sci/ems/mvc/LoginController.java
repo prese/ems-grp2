@@ -8,11 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
 	
-	@RequestMapping("")
+	@RequestMapping("/login")
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView("employee/login");
 		
@@ -20,7 +19,7 @@ public class LoginController {
 	}
 	
 	
-	@RequestMapping("/save")
+	@RequestMapping("/onLogin")
 	public ModelAndView onLogin(String userName, String pass, 
 			HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -35,5 +34,11 @@ public class LoginController {
 		}
 		
 		return modelAndView;
+	}
+	
+	@RequestMapping("/logout")
+	public String onLogout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "login";
 	}
 }
